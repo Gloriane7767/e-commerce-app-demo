@@ -33,11 +33,11 @@ public class Customer {
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "address_id", nullable = false)
-    private com.gloriane.ecommerceplatform.entity.Address address;
+    private Address address;
 
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true) // if you dereference the child entity or null value, it will be removed from the database
     @JoinColumn(name = "user_profile_id")
-    private com.gloriane.ecommerceplatform.entity.UserProfile userProfile;
+    private UserProfile userProfile;
 
     @PrePersist
     private void prePersist() {
