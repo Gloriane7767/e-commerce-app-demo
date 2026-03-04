@@ -1,7 +1,14 @@
 package com.gloriane.ecommerceappdemo.dto.response;
 
+import lombok.*;
+
 import java.time.LocalDateTime;
 import java.util.List;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class OrderResponseDto {
     private Long id;

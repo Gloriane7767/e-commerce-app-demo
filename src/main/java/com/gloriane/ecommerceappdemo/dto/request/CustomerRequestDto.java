@@ -3,6 +3,12 @@ package com.gloriane.ecommerceappdemo.dto.request;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class CustomerRequestDto {
     @NotBlank
