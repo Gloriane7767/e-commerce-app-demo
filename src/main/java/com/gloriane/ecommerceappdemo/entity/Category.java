@@ -9,19 +9,24 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true) // Safe equals/hashCode
+@ToString(onlyExplicitlyIncluded = true) // Safe toString
 
-@Entity
-@Table(name = "categories")
+@Entity // JPA entity
+@Table(name = "categories") // Maps to "categories" table
 public class Category {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-generated
+    @EqualsAndHashCode.Include
+    @ToString.Include
     private Long id;
 
     @Column(nullable = false, unique = true, length = 100)
+    @ToString.Include
     private String name;
 
     @OneToMany(mappedBy = "category")
+    @ToString.Include
     private List<Product> products;
 }

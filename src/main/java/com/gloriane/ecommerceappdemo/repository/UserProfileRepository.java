@@ -7,9 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
-    Optional<UserProfile> findByNickName(String nickName);
+    Optional<UserProfile> findByNickNameIgnoreCase(String nickName);
     List<UserProfile> findByPhoneNumberContaining(String partialPhoneNumber);
     List<UserProfile> findByBioIsNotNull();
-    List<UserProfile> findByNickNameStartingWith(String prefix);
-    long countByPhoneNumberStartingWith(String prefix);
+    List<UserProfile> findByNickNameStartingWithIgnoreCase(String prefix);
 }

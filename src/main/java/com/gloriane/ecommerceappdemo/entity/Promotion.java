@@ -10,23 +10,29 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@EqualsAndHashCode(onlyExplicitlyIncluded = true) // Safe equals/hashCode
+@ToString(onlyExplicitlyIncluded = true) // Safe toString
 
-@Entity
-@Table(name = "promotions")
+@Entity // JPA entity
+@Table(name = "promotions") // Maps to "promotions" table
 public class Promotion {
 
-    @Id
+    @Id // Primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
+    @ToString.Include
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 50)
+    @Column(nullable = false, unique = true, length = 50)  // Promotion code
+    @ToString.Include
     private String code;
 
     @Column(nullable = false)
+    @ToString.Include
     private LocalDate startDate;
 
     @Column(nullable = false)
+    @ToString.Include
     private LocalDate endDate;
 
     @ManyToMany(mappedBy = "promotions")

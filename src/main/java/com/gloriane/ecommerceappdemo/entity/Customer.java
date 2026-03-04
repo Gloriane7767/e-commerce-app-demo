@@ -11,7 +11,6 @@ import java.time.Instant;
 @NoArgsConstructor
 @ToString(onlyExplicitlyIncluded = true) // Safe equals/hashCode
 @EqualsAndHashCode(onlyExplicitlyIncluded = true) // Safe toString (no relationships)
-@Builder
 
 @Entity // JPA Entity
 @Table(name="Customers") // Table name

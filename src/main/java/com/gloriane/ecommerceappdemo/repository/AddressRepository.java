@@ -9,5 +9,5 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
     List<Address> findByZipCode(String zipCode);
     List<Address> findByCity(String city);
     List<Address> findByStreetContaining(String street);
-    long countByZipCodeStartingWith(String prefix);
+    List<Address>findByZipCodeStartingWith(String prefix);
 }
