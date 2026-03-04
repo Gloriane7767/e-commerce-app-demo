@@ -12,7 +12,7 @@ import java.util.List;
 public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findByCustomer_Id(Long customerId);
 
-    @Query("SELECT DISTINCT o FROM Order o LEFT JOIN FETCH o.items WHERE o.status = :status")
+    @Query("SELECT DISTINCT o FROM Order o LEFT JOIN FETCH o.orderItems WHERE o.status = :status")
     List<Order> findByStatus(@Param("status") OrderStatus status);
 
     List<Order> findByOrderDateAfter(Instant date);
