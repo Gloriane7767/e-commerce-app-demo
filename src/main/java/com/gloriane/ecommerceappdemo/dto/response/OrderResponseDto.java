@@ -1,19 +1,16 @@
 package com.gloriane.ecommerceappdemo.dto.response;
 
-import lombok.*;
+import jakarta.validation.constraints.NotNull;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-
-public class OrderResponseDto {
-    private Long id;
-    private Long customerId;
-    private LocalDateTime orderDate;
-    private String status;
-    private List<OrderItemResponseDto> items;
-}
+public record OrderResponseDto(
+        Long id,
+        LocalDateTime orderDate,
+        String status,
+        String customerName,
+        List<OrderItemResponseDto> orderItems,  // ← List of nested records
+        BigDecimal totalAmount
+) {}

@@ -9,6 +9,9 @@ import java.util.List;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true) // Safe equals/hashCode
 @ToString(onlyExplicitlyIncluded = true) // Safe toString
 

@@ -13,6 +13,7 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 @EqualsAndHashCode(onlyExplicitlyIncluded = true) // Safe equals/hashCode
 @ToString(onlyExplicitlyIncluded = true) // Safe toString (no relationships)
 

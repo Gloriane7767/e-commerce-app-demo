@@ -9,6 +9,7 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @ToString(onlyExplicitlyIncluded = true) // Safe equals/hashCode
 @EqualsAndHashCode(onlyExplicitlyIncluded = true) // Safe toString (no relationships)
 
