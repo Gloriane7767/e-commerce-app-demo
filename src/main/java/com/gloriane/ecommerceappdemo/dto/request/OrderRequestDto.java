@@ -8,5 +8,10 @@ import java.util.List;
 
 public record OrderRequestDto(
         @NotNull Long customerId,
-        @NotEmpty List<OrderRequestDto> items  // ← List of nested records
+        @NotEmpty List<OrderItemRequestDto> items
+) {
+    public record OrderItemRequestDto(
+            @NotNull Long productId,
+            @NotNull @Min(1) Integer quantity
     ) {}
+}
