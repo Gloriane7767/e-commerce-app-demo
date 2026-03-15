@@ -81,8 +81,8 @@ public class ProductServiceImpl implements ProductService {
      * @return ProductResponseDto of the first matching product
      * @throws ResourceNotFoundException if no products found
      */
+    @Transactional(readOnly = true)
     @Override
-    @Transactional(readOnly = true) // Read-only transaction
     public ProductResponseDto findProductByName(String productName) {
         // Step 1: Search using repository method (case-insensitive, partial match)
         List<Product> products = productRepository.findByNameContainingIgnoreCase(productName);
@@ -94,5 +94,10 @@ public class ProductServiceImpl implements ProductService {
         
         // Step 3: Return first matching product as DTO
         return mapper.toProductResponseDto(products.get(0));
+    }
+
+    @Override
+    public List<ProductResponseDto> searchByName(String name) {
+        return List.of();
     }
 }
